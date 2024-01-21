@@ -1,0 +1,31 @@
+
+{% extends "layouts/main.html" %}
+
+
+{% block content %}
+<div class="row justify-content-center p-5">
+    <div class="display-3">
+        comentarios de consultantes
+        <br>
+    </div>
+    
+    {% for p in comments%}
+
+        <div>
+            <p><b>{{p.user}}</b> comentó: <br> {{p.text}}</p>
+        </div>
+
+    {% endfor %}
+
+    <form method="POST" action="/consulta_comment_make/">
+        {% csrf_token %}            
+        {% if user.is_authenticated %}
+            <div class="form-group col-6 my-2">
+                <textarea class="form-control" name="text" placeholder="comentario"></textarea>
+            </div>
+            <button class="btn btn-dark" type="submit">Upload</button>
+        {% endif %}
+    </form>
+</div>
+
+{%endblock%}

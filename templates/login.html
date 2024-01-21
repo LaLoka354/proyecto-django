@@ -1,0 +1,28 @@
+
+{% extends "layouts/main.html" %}
+
+
+{% block content %}
+
+<div class="container-fluid justify-content-center p-3 row">
+   <h1>LOGIN</h1>
+
+   <form method="POST" action="">
+    
+    {% csrf_token %}
+    
+    <div class="form-group col-6 my-2">
+        <label> Username </label>
+        <input type="text" class="form-control" name="username" placeholder="username" {% if post is not None %} value="{{post.title}}" {%endif%}>
+    </div>
+    <div class="form-group col-6 my-2">
+        <label> Password </label>
+        <input type="password" class="form-control" name="password" placeholder="password" {% if post is not None %} value="{{post.title}}" {%endif%}>
+    </div>
+        <a type="button" class="secondary-link link-opacity-50" href="/register"> aún no tengo cuenta q bajon o.o</a>
+        <br>
+        <br>
+        <button class="btn btn-outline-dark" type="submit"> Login </button>
+    </form>
+</div>
+{%endblock%}

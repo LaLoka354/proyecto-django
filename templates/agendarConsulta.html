@@ -1,0 +1,123 @@
+{% extends "layouts/main.html" %}
+
+
+{% block content %}
+
+<div class="container-fluid justify-content-center p-3 row">
+   <h1>LLENAR FORMULARIO</h1>
+    <div class="">
+        complete el siguiente formulario y se confirmará su consulta en breve
+    </div>
+
+<div class="row col-12 text-center">
+    <div class="col-3"></div>
+    <form  class="col-6" method="POST" action="">
+        
+        {% csrf_token %}
+
+        <div class="display-6">
+            INFORMAÇÕES GERAIS:
+        </div>
+        <br>
+        <div class="form-group my-2">
+            <label> Qual é o seu nome? </label>
+            <input type="text" class="form-control" name="first_name" placeholder="nome">
+        </div>
+        <br>
+        <div class="form-group my-2">
+            <label> Qual é o seu sobrenome? </label>
+            <input type="text" class="form-control" name="last_name" placeholder="sobrenome?">
+        </div>
+        <br>
+        <div class="form-group my-2">
+            <label> Qual é a sua data de nascimento? </label>
+            <input type="text" class="form-control" name="birthday" placeholder="data">
+        </div>
+        <br>
+        <div class="form-group my-2">
+            <label> Onde você nasceu? </label>
+            <input type="text" class="form-control" name="birth_place" placeholder="lugar de nascimento">
+        </div>
+        <br>
+        <div class="form-group my-2">
+            <label> Qual é o seu estado civil? </label>
+            <input type="text" class="form-control" name="marital_status" placeholder="estado civil?">
+        </div>
+        <br>
+        <div class="form-group my-2">
+            <label> Me diga o seu número de telefone com o prefixo. </label>
+            <input type="text" class="form-control" name="phone_number" placeholder="(ex: +598 99999999)">
+        </div>
+        <br>
+        <div class="form-group my-2">
+            <label> Me forneça um e-mail para contato. </label>
+            <input type="text" class="form-control" name="email" placeholder="exemplo@exemplo.com">
+        </div>
+        <!--- TEXT AREA -->
+        <br>
+        <div class="form-group my-2">
+            <label> Qual é o motivo da sua consulta? </label>
+            <textarea class="form-control" name="motivo_consulta"></textarea>
+        </div>
+        <br>
+        <div class="form-group my-2">
+            <label> Se você precisar anexar um diagnóstico e/ou esclarecer a data e o surgimento dos sintomas, indique no campo abaixo. </label>
+            <textarea class="form-control" name="diagnosticos"></textarea>
+        </div>
+        <br>
+        <div class="form-group my-2">
+            <label> Por que você acredita que está apresentando esses sintomas ou conflitos? </label>
+            <textarea class="form-control" name="pregunta1"></textarea>
+        </div>
+        <br>
+        <div class="form-group my-2">
+            <label> Lembra-se de algum evento anterior ou próximo ao início dos sintomas? </label>
+            <textarea class="form-control" name="pregunta2"></textarea>
+        </div>
+        <br>
+        <div class="form-group my-2">
+            <label> Detalhe brevemente os principais eventos de conflito em sua vida. </label>
+            <textarea class="form-control" name="pregunta3"></textarea>
+        </div>
+        <br>
+        <!--- INFORMACION NACIMIENTO -->
+        <div class="display-6">
+            INFORMAÇÕES DE NASCIMENTO:
+        </div>
+
+        <br>
+        <div class="form-group my-2">
+            <label> Nasceu por parto normal ou cesariana? </label>
+            <textarea class="form-control" name="forma_nacimiento"></textarea>
+        </div>
+        <br>
+        
+        <div class="form-group my-2">
+            <label> Quantos meses de gestação você teve? </label>
+            <input type="text" class="form-control" name="meses_gestacion" placeholder="meses">
+        </div>
+        
+        <br>
+        <div class="form-group my-2">
+            <label> Houve conflitos/situações complicadas durante a gravidez que gostaria de destacar? </label>
+            <textarea class="form-control" name="conflictos_embarazo"></textarea>
+        </div>
+        
+        <br>
+        <div class="form-group my-2">
+            <label> Houve alguma complicação relacionada ao nascimento, como uso de fórceps, cordão umbilical enrolado, etc.?</label>
+            <textarea class="form-control" name="otros_hechos_embarazo"></textarea>
+        </div>
+        
+        <br>
+        <div class="form-group my-2">
+            <label> Qual é o seu número de filho? (Incluindo irmãos mortos, perdas e abortos). </label>
+            <input type="text" class="form-control" name="n_hijo" placeholder="número de filho">
+        </div>
+        <br>
+        <button class="btn btn-outline-dark col-2" type="submit"> ENVIAR <i class="bi bi-send"></i> </button>
+    </form>
+    <div class="col-2"></div>
+</div>
+
+{%endblock%}

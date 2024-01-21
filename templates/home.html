@@ -1,0 +1,92 @@
+
+{% extends "layouts/main.html" %}
+
+
+{% block content %}
+
+
+<div class="display-1">
+    Marcelo Medeiros
+</div>
+<div class="display-6">
+    Consultas, charlas, medicinas integradas
+</div>
+
+
+<div class="row container-fluid justify-content-center p-3 row">
+    <div class="col-4 p-2 border border-dark rounded-5 mx-2" style="background: #e8d7ff;">
+        {% for p in posts %}
+        <!--- noticias/articulos -->
+        <div class="border justify-content-center m-1 rounded-1">
+            <div class="row m-3">
+                <div class="col-8 p-3 text-left text-white fs-5 fw-bold rounded-1"
+                    style="background: rgb(6,63,67);
+                    background: linear-gradient(90deg, rgba(6,63,67,1) 0%, rgba(2,23,24,1) 100%);">
+                    {{ p.title }}
+                </div>
+                <div class="col-4 text-end justify-content-center">
+                    <a class="btn btn-light" href="/post/{{p.id}}"> Ver noticia completa</a>
+                </div>
+            </div>
+            <div class="col-12 px-2">{{p.short_description}}</div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="col-6 p-2 rounded-1 mx-2" style="background: #e8d7ff;">
+        <div class="col-12 p-3 text-left text-white display-3 rounded-1 fw-bold"
+        style="background: rgb(6,63,67);
+        background: linear-gradient(90deg, rgba(6,63,67,1) 0%, rgba(232,215,255,1) 100%);">
+        Medicinas integradas
+        </div>
+        <div class="container text-end">
+            <br>
+            <p class="">
+                A proposta de Medicinas integradas baseia-se nos conceitos de Nova Medicina Germânica, integrando conhecimentos de iridologia, IBE, PNL, decodificação biológica, hipnose ericksoniana, dentre outros. Estas ferramentas permitem compreender a ligação entre a psique humana e o motivo pelo qual um sintoma e/ou doença é desencadeada. Ligando eventos diários, emoções escondidas e como como essas emoções afetarão nossa biologia fazendo mudanças e adaptações chamadas patologias.
+                <br>
+                Ao identificar e compreender o processo biológico e a fase na qual se encontra, o individuo pode ter participação ativa no processo de cura, adquirindo a compreensão do sentido que o sintoma está apresentando.
+            </p>
+            <br>
+        </div>
+        <div class="col-12 p-3 text-end text-white display-7" style="background: rgb(232,215,255); background: linear-gradient(90deg, rgba(232,215,255,1) 0%, rgba(6,63,67,1) 100%);">
+            Nova Medicina Germânica
+        </div>
+        <div class="container">
+            <br>
+            <p class="">
+                Desenvolvida no final dos anos 70 pelo Dr. Ryke Geerd Hamer. Ele descobriu que cada doença é controlada a partir de sua própria área específica no cérebro. O resultado de sua pesquisa é o estabelecimento da relação biológica entre a psique, o cérebro com relação aos órgãos e tecidos em todo o corpo, com base nisso e com um diagnóstico ou sintoma pode-se ver na consulta, a razão inicial para o conflito e em que fase se encontra para o tratamento.
+
+            </p>
+            <br>
+        </div>
+        <div class="col-12 p-3 text-end text-white display-7"
+        style="background: rgb(232,215,255);
+        background: linear-gradient(90deg, rgba(232,215,255,1) 0%, rgba(6,63,67,1) 100%);">
+        Medicinas integradas</div>
+    </div>
+</div>
+
+<!--NOVEDADES-->
+
+<div class="row justify-content-center p-5">
+    <i></i>
+    
+    {% for p in novedades %}
+
+        <div>
+            <p><b> FECHA DE PUBLICACIÓN:</b> {{p.created}} GMT <br><br> {{p.text}}</p>
+        </div>
+
+    {% endfor %}
+
+
+    <form method="POST" action="/novedades_make/">
+        {% csrf_token %}            
+        {% if user.is_authenticated and user.is_staff %}
+            <div class="form-group col-6 my-2">
+                <textarea class="form-control" name="text" placeholder="comentario"></textarea>
+            </div>
+            <button class="btn btn-dark" type="submit">Upload</button>
+        {% endif %}
+    </form>
+</div>
+{%endblock%}

@@ -1,0 +1,72 @@
+
+{% extends "layouts/main.html" %}
+
+
+{% block content %}
+
+
+<div class="display-1">
+    {{ ficha.first_name }} {{ ficha.last_name }}
+</div>
+<div class="display-6">
+    ficha de consultante
+    <br>
+    <br>
+</div>
+    <div class="border border-black col-6 mx-2 justify-content-center rounded-1">
+        <div class="col-12 p-3 text-left text-white display-6 rounded-1" style="background: rgb(6,63,67); background: linear-gradient(90deg, rgba(6,63,67,1) 0%, rgba(232,215,255,1) 100%);">
+            DATOS GENERALES
+        </div>
+        <div class="col-12 p-3 text-left text-secondary fs-6 rounded-1" style="background: #f0e5ff;">
+            <b><i>{{ ficha.first_name }} {{ ficha.last_name }}</i></b>
+            <br>
+            <b>{{ ficha.phone_number }}</b>
+            <br>
+            <b>{{ ficha.email }}</b>
+            <br>
+            <b>{{ ficha.marital_status }}</b>
+            <br>
+            <b>Nascimento:</b> {{ ficha.birthday }}, {{ ficha.birth_place }}
+            <br>
+            <br>
+            <b>Motivo de consulta:</b>  {{ ficha.motivo_consulta }}
+            <br>
+            <b>Diagnósticos, síntomas, etc:</b> {{ ficha.diagnosticos }}
+            <br>
+            <b> PREGUNTA 1</b>{{ ficha.pregunta_1 }}
+                {{ ficha.pregunta_2 }}
+                {{ ficha.pregunta_3 }}
+        </div>
+    </div>
+    <div class="row mx-2 border border-black col-6 rounded-1">
+        <div class="col-12 p-3 text-left text-white display-6 rounded-1" style="background: rgb(6,63,67); background: linear-gradient(90deg, rgba(6,63,67,1) 0%, rgba(232,215,255,1) 100%);">
+            INFORMACIÓN DEL NACIMIENTO
+        </div>
+        <div class="col-12 p-3 text-left text-secondary fs-6 rounded-1" style="background: #f0e5ff;">
+            <i>{{ ficha.first_name }} {{ ficha.last_name }}</i></b>
+            <br>
+            <b>{{ ficha.phone_number }}</b>
+            <br>
+            <b>{{ ficha.email }}</b>
+            <br>
+            <b>{{ ficha.marital_status }}</b>
+            <br>
+            <b>Nascimento:</b> {{ ficha.birthday }}, {{ ficha.birth_place }}
+            <br>
+            <br>
+            <b>Parto normal/cesárea:</b>  {{ ficha.forma_nacimiento }}
+            <br>
+            <b>Meses de gestacion:</b>  {{ ficha.meses_gestacion }}
+            <br>    
+            <b>Conflictos durante el embarazo:</b>  {{ ficha.conflictos_embarazo }}
+            <br>
+            <b>Otros hechos durante el embarazo:</b> {{ ficha.otros_hechos_embarazo }}
+            <br>
+            <b>Numero de hijo:</b>  {{ ficha.n_hijo }}
+
+        </div>
+    </div>
+
+
+<h1>te anduvo el codigo :3</h1>
+{%endblock%}

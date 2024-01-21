@@ -1,0 +1,33 @@
+
+{% extends "layouts/main.html" %}
+
+
+{% block content %}
+<div class="row justify-content-center p-5">
+
+    <div class="col-6 h1"> nuevo post</div>
+
+    <form class="col-6" method="POST">
+        {% csrf_token %}
+
+        <input type="hidden" name="id" {% if post is not None %} value="{{post.id}}" {%endif%}>
+
+        <div class="form-group col-6 my-2">
+            <label> Title </label>
+            <input type="text" class="form-control" name="title" placeholder="Title" {% if post is not None %} value="{{post.title}}" {%endif%}>
+        </div>
+
+        <div class="form-group col-6 my-2">
+            <label> Description </label>
+            <input type="text" class="form-control" name="short_description" placeholder="This will be showed up first" {% if post is not None %} value="{{post.short_description}}" {%endif%}>
+        </div>
+
+        <div class="form-group col-6 my-2">
+            <label> Text </label>
+            <textarea class="form-control" name="text" {% if post is not None %} value="{{post.text}}" {%endif%}></textarea>
+        </div>
+        <button class="btn btn-primary" type="submit"> Upload </button>
+    </form>
+</div>
+
+{%endblock%}

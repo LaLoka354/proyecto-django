@@ -1,0 +1,43 @@
+
+{% extends "layouts/main.html" %}
+
+
+{% block content %}
+
+<div class="container-fluid justify-content-center p-3 row">
+   <h1>REGISTER</h1>
+
+   <form method="POST" action="">
+    
+    {% csrf_token %}
+    
+    <div class="form-group col-6 my-2">
+        <label> Username </label>
+        <input type="text" class="form-control" name="username" placeholder="username">
+    </div>
+    <div class="form-group col-6 my-2">
+        <label> Email </label>
+        <input type="text" class="form-control" name="email" placeholder="Email">
+    </div>
+    <div class="form-group col-6 my-2">
+        <label> first Name </label>
+        <input type="text" class="form-control" name="first_name" placeholder="first name">
+    </div>
+    <div class="form-group col-6 my-2">
+        <label> last Name </label>
+        <input type="text" class="form-control" name="last_name" placeholder="last name">
+    </div>
+    <div class="form-group col-6 my-2">
+        <label> Password </label>
+        <input type="password" class="form-control" name="password" placeholder="Password">
+    </div>
+    <div class="form-group col-6 my-2">
+        <label> Confirm password </label>
+        <input type="password" class="form-control" name="confirm_password" placeholder="Confirm password">
+    </div>
+    <a type="button" class="secondary-link link-opacity-50" href="/login"> ya tengo una cuenta o.o</a>
+        <br>
+        <br>
+    <button class="btn btn-outline-dark" type="submit"> Register </button>
+</div>
+{%endblock%}

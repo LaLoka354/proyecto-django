@@ -1,0 +1,34 @@
+
+{% extends "layouts/main.html" %}
+
+
+{% block content %}
+
+
+<div class="display-1">
+    Marcelo Medeiros
+</div>
+<div class="display-6">
+    Consultas, charlas, medicinas integradas
+    te funciono el codigo :3 sigue andando
+</div>
+</div>
+
+<div class="row container-fluid justify-content-center p-3 row">
+    <div class="col-6 p-2 border border-dark rounded-5 mx-2" style="background: #e8d7ff;">
+        {% for p in fichas %}
+        <div class="border justify-content-center m-1 rounded-1">
+            <div class="row m-3">
+                <div class="col-8 p-3 text-left text-white  rounded-1" style="background: rgb(6,63,67); background: linear-gradient(90deg, rgba(6,63,67,1) 0%, rgba(2,23,24,1) 100%);">
+                    {{ p.first_name }} {{p.id}}
+                </div>
+                <div class="col-4 text-end justify-content-center">
+                    <a class="btn btn-light" href="/ficha/{{p.id}}"> Ver ficha completa</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{%endblock%}

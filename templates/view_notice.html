@@ -1,0 +1,58 @@
+
+{% extends "layouts/main.html" %}
+
+
+{% block content %}
+
+
+<div class="display-1">
+    Medicinas Integradas
+</div>
+<div class="display-6">
+    Marcelo Medeiros
+</div>
+
+<div class="row border border-black col-12 justify-content-center m-1 rounded-1">
+    <div class="col-12 justify-content-center p-2 m-3">
+        <div class="col-12 p-3 text-left text-white fs-5 fw-bold rounded-1" style="background: rgb(6,63,67);
+        background: linear-gradient(90deg, rgba(6,63,67,1) 0%, rgba(232,215,255,1) 100%);">
+            {{ post.title }}
+        </div>
+        <div class="col-12 p-3 text-left text-secondary fs-6 fw-bold rounded-1" style="background: #f0e5ff;">
+            <i>{{ post.short_description }}</i>
+            <br>
+            <br>
+            {{ post.text }}
+        </div>
+        <br>
+        <div class="h3">
+            <p><i><b>comentarios</b></i></p>
+        </div>
+        <br>
+        {% for c in post.comment_set.all %}
+            <p><b>{{c.user}}</b> comentó: <br> {{c.text}}</p>
+            <br>
+        {% endfor %}
+        <!--- comentar -->
+        {% if not user.is_authenticated %}
+            <div class="form-group col-6 my-2">
+                <p>Inicia sesion para dejar tu comentario</p>
+            </div>
+        {% endif %} 
+        <form method="POST" action="/comment/">
+            {% csrf_token %}            
+            {% if user.is_authenticated %}
+                <input type="hidden" name="post" value="{{post.id}}">
+                <div class="form-group col-6 my-2">
+                    <textarea class="form-control" name="text" placeholder="comentario"></textarea>
+                </div>
+                <button class="btn btn-dark" type="submit">Upload</button>
+            {% endif %}
+        </form>
+        
+    </div>
+</div>
+
+
+<h1>te anduvo el codigo :3</h1>
+{%endblock%}
